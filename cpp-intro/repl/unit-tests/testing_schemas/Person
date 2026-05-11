@@ -1,0 +1,16 @@
+struct N{
+     string n;
+}
+
+struct Person{
+    N name;
+    string email;
+}
+
+fn getName -> string {
+    Person p;
+}
+
+fn getId -> uint32 {
+    Person p;
+}

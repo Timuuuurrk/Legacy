@@ -1,0 +1,40 @@
+name: Asm CI
+
+on:
+  pull_request
+
+jobs:
+  tests:
+    name: Tests
+    runs-on: [self-hosted, ubuntu, ghc]
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+          fetch-depth: 0
+
+    - name: Install dependencies
+      run: |
+        stack upgrade
+        stack install random optparse-applicative
+
+    - name: Check line spaces
+      run: |
+        ci-extra/check-lines.sh
+
+    - name: Check formatting
+      run: |
+        ci-extra/check-asm-formatting.py
+
+    - name: Compile tests
+      run: stack ghc -- -o test test.hs
+
+    - name: Build
+      run: ./build.sh
+
+    - name: Test sub
+      run: ./test sub --bin ./build/sub --max-qwords 128 --tests 1000
+
+    - name: Test mul
+      run: ./test mul --bin ./build/mul --max-qwords 128 --tests 1000

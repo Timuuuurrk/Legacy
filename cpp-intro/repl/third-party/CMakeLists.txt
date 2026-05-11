@@ -1,0 +1,6 @@
+add_subdirectory(gtest)
+add_subdirectory(httplib)
+add_subdirectory(CLI11)
+add_subdirectory(ctpg)
+add_subdirectory(replxx)
+add_subdirectory(xxhash)

@@ -1,0 +1,28 @@
+struct Car {
+   uint32 id;
+   uint64 price;
+}
+struct CarPass {
+   string Model;
+   Car car;
+}
+
+fn getCarId -> uint32 {
+    uint32 id;
+}
+
+fn getCarPrice -> uint64 {
+    Car car;
+}
+
+fn getCarsQuantity -> Car {
+    string name;
+    Car from;
+}
+
+fn getCarPass -> Car {
+    string name;
+    uint32 region;
+    CarPass from;
+}
+

@@ -1,0 +1,28 @@
+struct number {
+    int32 val;
+}
+
+struct N1 {
+    number a;
+}
+
+struct N2 {
+    N1 b;
+}
+
+struct N3 {
+    N2 c;
+}
+
+struct N4 {
+    N3 d;
+}
+
+fn getNumber -> string {
+    N4 num;
+    N2 kek;
+}
+
+fn calc -> uint32 {
+    uint32 from;
+}
